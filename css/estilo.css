@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../font/Cabin/Cabin-Regular.ttf");
+}
+@font-face{
+    font-family: "Bungee";
+    src: url("../font/Bungee/Bungee-Regular.ttf");
+}
+
+nav{
+    background-color: #FFF;
+}
+.titulo{
+    font-family: "Bungee";
+}
+.branco{
+    color: #FFF;
+}
+.verde{
+    color: #015A06;
+}
+.sobre-margin{
+    margin-top: 25%;
+}
+.sobre-tam{
+    font-size: 20px;
+}
+.texto{
+    font-family: "Cabin";
+}
+#sobre{
+    background-color: #015A06;
+}
+.card-title{
+    color: #015A06;
+    font-family: "Cabin";
+}
+.desenvolvedores-titulo{
+    color: #015A06;
+    font-family: "Bungee";
+}
+#contato{
+    background-color: #015A06;
+}
+.copyright{
+    font-size: 15px;
+}
+.link{
+    text-decoration: none;
+    font-style: italic;
+}
