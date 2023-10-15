@@ -7,7 +7,7 @@
     <?php include "css/link.html"?>
 </head>
 <body>
-    <?php include "nav/nav-todos.html"?>
+    <?php include "navbar/nav-todos.html"?>
     <div class="container">
         <div class="row">
             <div class="col-1"></div>

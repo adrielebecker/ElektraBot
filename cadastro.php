@@ -7,7 +7,7 @@
     <?php include "css/link.html";?>
 </head>
 <body>
-    <?php include "nav/nav-todos.html"; ?>
+    <?php include "navbar/nav-todos.html"; ?>
     <div class="container">
         <div class="row mt-5">
             <h3 class="titulo verde text-center">FAÇA O SEU CADASTRO</h3>

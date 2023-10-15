@@ -8,27 +8,7 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm border-bottom border-success sticky-top">
-        <a href="#home" class="nav-link ms-2"><img src="img/logo/logo-nav.png" alt="logo da elektrabot" width="80%"></a>
-        <div class="col-5"></div>
-        <ul class="navbar-nav justify-content-end mb-2">
-            <li class="nav-item ms-3">
-                <a href="#sobre" class="nav-link">SOBRE</a> 
-            </li>
-            <li class="nav-item ms-3">
-                <a href="#desenvolvedores" class="nav-link">DESENVOLVEDORES</a> 
-            </li>
-            <li class="nav-item ms-3">
-                <a href="#contato" class="nav-link">CONTATO</a> 
-            </li>
-            <li class="nav-item ms-3">
-                <a href="login.php" class="nav-link">LOGIN</a> 
-            </li>
-            <li class="nav-item ms-3">
-                <a href="cadastro.php" class="nav-link">CADASTRO</a> 
-            </li>
-        </ul>
-    </nav>
+    <?php include "navbar/nav-todos.html";?>
     
     <section id="home">
         <div class="container mt-5 me-5">
@@ -152,7 +132,7 @@
     </section>
     <br><br>
 
-    <section id="direitos">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-2"></div>
@@ -168,10 +148,12 @@
                 <div class="col-2"></div>
                 <div class="col-9">
                     <p class="copyright">Copyright ©2023 Todos os direitos reservados a ElektraBot 
-                        | Institituto Federal Catarinenese - Campus Rio do Sul </p>
+                        | Institituto Federal Catarinenese - Campus Rio do Sul 
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </footer>
+
 </body>
 </html>
