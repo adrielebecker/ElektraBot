@@ -21,6 +21,9 @@ nav{
 .verde{
     color: #015A06;
 }
+.secundario{
+    background-color: #70B77E;
+}
 .sobre-margin{
     margin-top: 25%;
 }
@@ -49,5 +52,23 @@ nav{
 }
 .link{
     text-decoration: none;
-    font-style: italic;
+}
+.card-senha{
+    margin: 4% 0 0 24%;
+    border: 10px #015A06 solid;
+    border-radius: 5%;
+}
+.card-login{
+    margin: 4% 0 0 0;
+    border: 5px #015A06 solid;
+    border-radius: 5%;
+}
+.nav-link.active{
+    font-family: "Bungee";
+    text-align: center;
+    color: #FFF;
+}
+.offcanvas.offcanvas-end{
+    background-color: #015A06;
+    color: #FFF;
 }
