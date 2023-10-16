@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    var_dump($_GET);
+?>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -29,11 +32,6 @@
                         <div class="col-2"></div>
                         <div class="col-6 ms-5">
                             <label for="user" class="form-label texto verde">USUÁRIO:</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-6 ms-5">
                             <input type="text" name="user" id="user" class="form-control border-success">
                         </div>
                     </div>
@@ -42,13 +40,8 @@
                         <div class="col-2"></div>
                         <div class="col-6 ms-5">
                             <label for="cargo" class="form-label texto verde">CARGO:</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-6 ms-5">
                             <select name="cargo" id="cargo" class="form-select border-success">
-                                <option value="Eletricista" selected>Eletricista</option>
+                                <option value="Eletricista">Eletricista</option>
                                 <option value="Gerente">Gerente</option>
                             </select>
                         </div>
@@ -58,14 +51,10 @@
                         <div class="col-2"></div>
                         <div class="col-6 ms-5">
                             <label for="senha" class="form-label texto verde">SENHA:</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-6 ms-5">
                             <input type="text" name="senha" id="senha" class="form-control border-success">
                         </div>
                     </div>
+        
                     <div class="row mt-4">
                         <div class="col-5"></div>
                         <div class="col-2 ms-2">
