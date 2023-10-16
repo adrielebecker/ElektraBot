@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-    $nome = "Fulano";
-    $pagina = "Bem Vindo, ".$nome."!";
+    session_start();
+    $pagina = "Bem Vindo, ".$_SESSION['nome']."!";
 ?>
 <html lang="pt-BR">
 <head>

@@ -17,10 +17,23 @@
     switch($acao){
         case 'continuar':
             cargo();
+            break;
+
         case 'salvarGerente':
             salvarGerente($caminhoGerente, $jsonGerente);
+            break;
+
         case 'salvarEletricista':
             salvarEletricista($caminhoEletricista, $jsonEletricista);
+            break;
+
+        case 'entrar':
+            login($caminhoEletricista, $caminhoGerente, $jsonEletricista, $jsonGerente);
+            break;
+            
+        case 'logoff':
+            logoff();
+            break;
     }
 
     function cargo(){
@@ -33,7 +46,7 @@
         }
     }
 
-    /******************************************* Gerente *****************************************************/
+/************************************ Gerente ************************************************/
     function salvarGerente($caminhoGerente, $jsonGerente){
         $id = date("YmdHis");
         $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
@@ -53,7 +66,7 @@
         $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
 
         $dados = ['id' => $id,
-                'cargo' => 'gerente',
+                'cargo' => 'Gerente',
                 'nome' => ucwords($nome),
                 'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
                 'sexo' => $sexo,
@@ -83,7 +96,7 @@
         fclose($fp);
 
         echo "<script> 
-                alert('Cadastro efetuado com sucesso!'); 
+                alert('Cadastro efetuado com sucesso!')
                 location.href = '../login.php';
             </script>";
     }
@@ -109,7 +122,7 @@
         $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
 
         $dados = ['id' => $id,
-                'cargo' => 'eletricista',
+                'cargo' => 'Eletricista',
                 'nome' => ucwords($nome),
                 'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
                 'sexo' => $sexo,
@@ -139,8 +152,52 @@
         fclose($fp);
 
         echo "<script> 
-                alert('Cadastro efetuado com sucesso!'); 
+                alert('Cadastro efetuado com sucesso!')
                 location.href = '../login.php';
             </script>";
     }
+
+/************************************ Login ************************************************/
+    function login($caminhoEletricista, $caminhoGerente, $jsonEletricista, $jsonGerente){
+        $cargo = isset($_POST['cargo']) ? $_POST['cargo'] : "";
+        $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+        $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
+
+        if($cargo == "Gerente"){
+            $jsonG = json_decode(file_get_contents($caminhoGerente), true);
+            foreach($jsonG as $value){
+                if(strtolower($value['nome']) == strtolower($nome) && $value['senha'] == $senha){
+                    session_start();
+                    $_SESSION['nome'] = $value['nome'];
+                    header('Location: ../gerente/index.php');
+                } 
+                else{
+                    echo "Nome ou senha incorretos!";
+                    echo $value['nome'];
+                }
+            }
+        }
+
+        if($cargo == "Eletricista"){
+            $jsonE = json_decode(file_get_contents($caminhoEletricista), true);
+            foreach($jsonE as $value){
+                if(strtolower($value['nome']) == strtolower($nome) && $value['senha'] == $senha){
+                    session_start();
+                    $_SESSION['nome'] = $value['nome'];
+                    header('Location: ../eletricista/index.php');
+                } 
+                else{
+                    echo "Nome ou senha incorretos!";
+                    echo $value['nome'];
+                }
+            }
+        }
+    }
+
+    function logoff(){
+        session_start();
+        session_destroy();
+        header('Location: ../index.php');
+    }
+
 ?>

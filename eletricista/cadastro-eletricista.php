@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+    session_start();
+    isset($_SESSION['dados']);
     $pagina = "Cadastro";
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
@@ -169,7 +171,7 @@
 
             <div class="row mt-4">
                 <div class="col-1">
-                    <button class="btn btn-secondary border-dark"><a href="index.html" class="link texto branco">Voltar</a></button>
+                    <button class="btn btn-secondary border-dark"><a href="../index.php" class="link texto branco">Voltar</a></button>
                 </div>
                 <div class="col-1">
                     <button class="btn secundario border-success branco texto" type="submit" name="acao" id="acao" value="salvarEletricista">Salvar</button>

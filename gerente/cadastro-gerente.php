@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+    session_start();
+    isset($_SESSION['dados']);
     $pagina = "Cadastro";
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     $nome = isset($_POST['nome']) ? $_POST['nome'] : "";

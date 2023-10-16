@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
-    var_dump($_GET);
+    $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
+    $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+    $cargo = isset($_POST['cargo']) ? $_POST['cargo'] : "";
+    $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
 ?>
 <html lang="pt-BR">
 <head>
@@ -27,12 +30,12 @@
                         <h4 class="titulo verde text-center">Login</h4>
                     </div>
                 </div>
-                <form action="" method="post">
+                <form action="acao/acao.php" method="post">
                     <div class="row mt-3">
                         <div class="col-2"></div>
                         <div class="col-6 ms-5">
-                            <label for="user" class="form-label texto verde">USUÁRIO:</label>
-                            <input type="text" name="user" id="user" class="form-control border-success">
+                            <label for="nome" class="form-label texto verde">USUÁRIO:</label>
+                            <input type="text" name="nome" id="nome" class="form-control border-success" value="<?=$nome?>">
                         </div>
                     </div>
         
@@ -41,8 +44,8 @@
                         <div class="col-6 ms-5">
                             <label for="cargo" class="form-label texto verde">CARGO:</label>
                             <select name="cargo" id="cargo" class="form-select border-success">
-                                <option value="Eletricista">Eletricista</option>
-                                <option value="Gerente">Gerente</option>
+                                <option value="Eletricista" <?php if($cargo == "Eletricista") echo "selected";?>>Eletricista</option>
+                                <option value="Gerente" <?php if($cargo == "Gerente") echo "selected";?>>Gerente</option>
                             </select>
                         </div>
                     </div>
@@ -51,18 +54,18 @@
                         <div class="col-2"></div>
                         <div class="col-6 ms-5">
                             <label for="senha" class="form-label texto verde">SENHA:</label>
-                            <input type="text" name="senha" id="senha" class="form-control border-success">
+                            <input type="text" name="senha" id="senha" class="form-control border-success" value="<?=$senha?>">
                         </div>
                     </div>
         
                     <div class="row mt-4">
                         <div class="col-5"></div>
                         <div class="col-2 ms-2">
-                            <button class="btn secundario border-success"><a href="index.html" class="link branco">Entrar</a></button>
+                            <button class="btn secundario border-success" type="submit" name="acao" id="acao" value="entrar">Entrar</button>
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <a href="cadastro.php" class="text-end">Cadastrar</a>
+                        <a href="cargo.php" class="text-end">Cadastrar</a>
                     </div>
                 </form>
                 <br>

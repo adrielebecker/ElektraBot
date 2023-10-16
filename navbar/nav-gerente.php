@@ -4,8 +4,8 @@
         <div class="col-2">
             <a href="#home" class="nav-link ms-2"><img src="../img/logo/logo-nav.png" alt="logo da elektrabot" width="80%"></a>
         </div>
-        <div class="col-2 mt-4">
-            <p class="texto"><?= nome($pagina)?></p>
+        <div class="col-4 mt-4">
+            <p class="texto text-center"><?= nome($pagina)?></p>
         </div>
         <div class="col-3">
             <form class="d-flex mt-3" role="search">
