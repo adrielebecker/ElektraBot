@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-    // session_name("eletricista");
     session_start();
     var_dump($_SESSION);
     $pagina = "Bem Vindo, ".$_SESSION['nomeEletri']."!";

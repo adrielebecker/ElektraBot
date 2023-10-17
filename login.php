@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
-    $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+    $user = isset($_POST['user']) ? $_POST['user'] : "";
     $cargo = isset($_POST['cargo']) ? $_POST['cargo'] : "";
     $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
 ?>
@@ -10,8 +10,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <?php include "css/link.html"?>
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script></head>
 <body>
     <?php include "navbar/nav-todos.html"?>
     <div class="container">
@@ -34,8 +35,8 @@
                     <div class="row mt-3">
                         <div class="col-2"></div>
                         <div class="col-6 ms-5">
-                            <label for="nome" class="form-label texto verde">USUÁRIO:</label>
-                            <input type="text" name="nome" id="nome" class="form-control border-success" value="<?=$nome?>">
+                            <label for="user" class="form-label texto verde">USUÁRIO:</label>
+                            <input type="text" name="user" id="user" class="form-control border-success" value="<?=$user?>">
                         </div>
                     </div>
         
@@ -54,7 +55,7 @@
                         <div class="col-2"></div>
                         <div class="col-6 ms-5">
                             <label for="senha" class="form-label texto verde">SENHA:</label>
-                            <input type="text" name="senha" id="senha" class="form-control border-success" value="<?=$senha?>">
+                            <input type="password" name="senha" id="senha" class="form-control border-success" value="<?=$senha?>">
                         </div>
                     </div>
         

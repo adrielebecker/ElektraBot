@@ -20,6 +20,7 @@
     $rua = isset($_POST['rua']) ? $_POST['rua'] : "";
     $complemento = isset($_POST['complemento']) ? $_POST['complemento'] : "";
     $numero = isset($_POST['numero']) ? $_POST['numero'] : "";
+    $user = isset($_POST['user']) ? $_POST['user'] : "";
     $matricula = isset($_POST['matricula']) ? $_POST['matricula'] : "";
     $gerente = isset($_POST['gerente']) ? $_POST['gerente'] : "";
     $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
@@ -47,11 +48,11 @@
             <div class="row mt-2">
                 <div class="col-4">
                     <label for="nome" class="form-label">Nome Completo:</label>
-                    <input type="text" name="nome" id="nome" class="form-control border-success text-center" value="<?=$nome?>">
+                    <input type="text" name="nome" id="nome" class="form-control border-success text-center" value="<?=$nome?>" required>
                 </div>
                 <div class="col-2">
                     <label for="dataNasc" class="form-label">Data de Nascimento:</label>
-                    <input type="date" name="dataNasc" id="dataNasc" class="form-control border-success" value="<?=$dataNasc?>">
+                    <input type="date" name="dataNasc" id="dataNasc" class="form-control border-success" value="<?=$dataNasc?>" required>
                 </div>
                 <div class="col-4">
                     <label for="sexo" class="form-check-label">Sexo:</label>
@@ -69,29 +70,30 @@
                 </div>               
                 <div class="col-2">
                     <label for="cpf" class="form-label">CPF:</label>
-                    <input type="text" name="cpf" id="cpf" class="form-control border-success text-center" placeholder="000.000.000-00" value="<?=$cpf?>">
+                    <input type="text" name="cpf" id="cpf" class="form-control border-success text-center" placeholder="000.000.000-00" value="<?=$cpf?>" required>
                 </div> 
             </div>
 
             <div class="row mt-3">
                 <div class="col-3">
                     <label for="celular" class="form-label">Celular:</label>
-                    <input type="text" name="celular" id="celular" class="form-control border-success text-center" placeholder="(00) 00000-0000" value="<?=$celular?>">
+                    <input type="text" name="celular" id="celular" class="form-control border-success text-center" placeholder="(00) 00000-0000" value="<?=$celular?>" required>
                 </div>
                 <div class="col-6">
                     <label for="email" class="form-label">E-mail:</label>
-                    <input type="text" name="email" id="email" class="form-control border-success text-center" placeholder="dominio@email.com" value="<?=$email?>">    
+                    <input type="text" name="email" id="email" class="form-control border-success text-center" placeholder="dominio@email.com" value="<?=$email?>" required>    
                 </div> 
                 <div class="col-3">
                     <label for="cep" class="form-label">CEP:</label>
-                    <input type="text" name="cep" id="cep" class="form-control border-success text-center" placeholder="00000-0000" value="<?=$cep?>">
+                    <input type="text" name="cep" id="cep" class="form-control border-success text-center" placeholder="00000-0000" value="<?=$cep?>" required>
                 </div>               
             </div>
             
             <div class="row mt-3">
                 <div class="col-3">
                     <label for="estado" class="form-label">Estado:</label>
-                    <select name="estado" id="estado" class="form-select border-success text-center">
+                    <select name="estado" id="estado" class="form-select border-success text-center" required>
+                        <option value="selecione" selected>Selecione um estado...</option>
                         <option value="AC" <?php if($estado =="AC") echo "selected";?>>Acre</option>
                         <option value="AL" <?php if($estado =="AL") echo "selected";?>>Alagoas</option>
                         <option value="AP" <?php if($estado =="AP") echo "selected";?>>Amapá</option>
@@ -115,7 +117,7 @@
                         <option value="RS" <?php if($estado =="RS") echo "selected";?>>Rio Grande do Sul</option>
                         <option value="RO" <?php if($estado =="RO") echo "selected";?>>Rondônia</option>
                         <option value="RR" <?php if($estado =="RR") echo "selected";?>>Roraima</option>
-                        <option value="SC" selected <?php if($estado =="SC") echo "selected";?>>Santa Catarina</option>
+                        <option value="SC" <?php if($estado =="SC") echo "selected";?>>Santa Catarina</option>
                         <option value="SP" <?php if($estado =="SP") echo "selected";?>>São Paulo</option>
                         <option value="SE" <?php if($estado =="SE") echo "selected";?>>Sergipe</option>
                         <option value="TO" <?php if($estado =="TO") echo "selected";?>>Tocantins</option>
@@ -124,15 +126,15 @@
                 </div>
                 <div class="col-3">
                     <label for="cidade" class="form-label">Cidade:</label>
-                    <input type="text" name="cidade" id="cidade" class="form-control border-success text-center" value="<?=$cidade?>"> 
+                    <input type="text" name="cidade" id="cidade" class="form-control border-success text-center" value="<?=$cidade?>" required> 
                 </div>
                 <div class="col-3">
                     <label for="bairro" class="form-label">Bairro:</label>
-                    <input type="text" name="bairro" id="bairro" class="form-control border-success text-center" value="<?=$bairro?>"> 
+                    <input type="text" name="bairro" id="bairro" class="form-control border-success text-center" value="<?=$bairro?>" required> 
                 </div> 
                 <div class="col-3">
                     <label for="rua" class="form-label">Rua:</label>
-                    <input type="text" name="rua" id="rua" class="form-control border-success text-center" value="<?=$rua?>">
+                    <input type="text" name="rua" id="rua" class="form-control border-success text-center" value="<?=$rua?>" required>
                 </div>                     
             </div>
 
@@ -147,14 +149,15 @@
                 </div>  
                 <div class="col-3">
                     <label for="matricula" class="form-label">Matrícula:</label>
-                    <input type="text" name="matricula" id="matricula" class="form-control border-success text-center" value="<?=$matricula?>">
+                    <input type="text" name="matricula" id="matricula" class="form-control border-success text-center" value="<?=$matricula?>" required>
                 </div>           
             </div>
 
             <div class="row mt-3">
-                <div class="col-4">
+                <div class="col-3">
                     <label for="gerente" class="form-label">Gerente Responsável:</label>
-                    <select name="gerente" id="gerente" class="form-select border-success text-center">
+                    <select name="gerente" id="gerente" class="form-select border-success text-center" required>
+                        <option value="selecione" selected>Selecione um gerente...</option>
                         <?php
                             foreach($json as $value){
                                 echo "<option value='{$value['nome']}'>{$value['nome']}</option>";
@@ -162,13 +165,17 @@
                         ?>
                     </select>
                 </div>
-                <div class="col-4">
-                    <label for="senha" class="form-label">Criar Senha:</label>
-                    <input type="password" name="senha" id="senha" class="form-control border-success text-center" value="<?=$senha?>">
+                <div class="col-3">
+                    <label for="user" class="form-label">Nome de usuário:</label>
+                    <input type="text" name="user" id="user" class="form-control border-success text-center" value="<?=$user?>" required>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
+                    <label for="senha" class="form-label">Criar Senha:</label>
+                    <input type="password" name="senha" id="senha" class="form-control border-success text-center" value="<?=$senha?>" required>
+                </div>
+                <div class="col-3">
                     <label for="confirmaSenha" class="form-label">Confirmar Senha:</label>
-                    <input type="password" name="confirmaSenha" id="confirmaSenha" class="form-control border-success text-center" value="<?=$confirmaSenha?>">
+                    <input type="password" name="confirmaSenha" id="confirmaSenha" class="form-control border-success text-center" value="<?=$confirmaSenha?>" required>
                 </div>
             </div>
 

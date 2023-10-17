@@ -1,4 +1,5 @@
 <?php
+    include 'funcoes.php';
     var_dump($_POST);
     $caminhoGerente = '../json/gerente.json';
     $caminhoEletricista = '../json/eletricista.json';
@@ -62,6 +63,7 @@
         $rua = isset($_POST['rua']) ? $_POST['rua'] : "";
         $complemento = isset($_POST['complemento']) ? $_POST['complemento'] : "";
         $numero = isset($_POST['numero']) ? $_POST['numero'] : 0;
+        $user = isset($_POST['user']) ? $_POST['user'] : "";
         $matricula = isset($_POST['matricula']) ? $_POST['matricula'] : "";
         $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
 
@@ -70,16 +72,17 @@
                 'nome' => ucwords($nome),
                 'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
                 'sexo' => $sexo,
-                'cpf' => $cpf,
-                'celular' => $celular,
+                'cpf' => formataCpf($cpf),
+                'celular' => formataTelefone($celular),
                 'email' => $email,
-                'cep' => $cep,
-                'estdado' => $estado,
+                'cep' => formataCep($cep),
+                'estado' => $estado,
                 'cidade' => ucwords($cidade),
                 'bairro' => ucwords($bairro),
                 'rua' => ucwords($rua),
                 'complemento' => ucwords($complemento),
                 'numero' => $numero,
+                'user' => $user,
                 'matricula' => $matricula,
                 'senha' => $senha];
 
@@ -117,6 +120,7 @@
         $rua = isset($_POST['rua']) ? $_POST['rua'] : "";
         $complemento = isset($_POST['complemento']) ? $_POST['complemento'] : "";
         $numero = isset($_POST['numero']) ? $_POST['numero'] : "";
+        $user = isset($_POST['user']) ? $_POST['user'] : "";
         $matricula = isset($_POST['matricula']) ? $_POST['matricula'] : "";
         $gerente = isset($_POST['gerente']) ? $_POST['gerente'] : "";
         $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
@@ -126,16 +130,17 @@
                 'nome' => ucwords($nome),
                 'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
                 'sexo' => $sexo,
-                'cpf' => $cpf,
-                'celular' => $celular,
+                'cpf' => formataCpf($cpf),
+                'celular' => formataTelefone($celular),
                 'email' => $email,
-                'cep' => $cep,
-                'estdado' => $estado,
+                'cep' => formataCep($cep),
+                'estado' => $estado,
                 'cidade' => ucwords($cidade),
                 'bairro' => ucwords($bairro),
                 'rua' => ucwords($rua),
                 'complemento' => ucwords($complemento),
                 'numero' => $numero,
+                'user' => $user,
                 'matricula' => $matricula,
                 'senha' => $senha];
 
@@ -160,15 +165,16 @@
 /************************************ Login ************************************************/
     function login($caminhoEletricista, $caminhoGerente, $jsonEletricista, $jsonGerente){
         $cargo = isset($_POST['cargo']) ? $_POST['cargo'] : "";
-        $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+        $user = isset($_POST['user']) ? $_POST['user'] : "";
         $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
 
         if($cargo == "Gerente"){
             $jsonG = json_decode(file_get_contents($caminhoGerente), true);
             foreach($jsonG as $value){
-                if(strtolower($value['nome']) == strtolower($nome) && $value['senha'] == $senha){
+                if(strtolower($value['user']) == strtolower($user) && $value['senha'] == $senha){
                     session_start();
                     $_SESSION['nomeGerente'] = $value['nome'];
+                    $_SESSION['idGerente'] = $value['id'];
                     header('Location: ../gerente/index.php');
                 } 
                 else{
@@ -181,9 +187,10 @@
         if($cargo == "Eletricista"){
             $jsonE = json_decode(file_get_contents($caminhoEletricista), true);
             foreach($jsonE as $value){
-                if(strtolower($value['nome']) == strtolower($nome) && $value['senha'] == $senha){
+                if(strtolower($value['user']) == strtolower($user) && $value['senha'] == $senha){
                     session_start();
                     $_SESSION['nomeEletri'] = $value['nome'];
+                    $_SESSION['idEletri'] = $value['id'];
                     header('Location: ../eletricista/index.php');
                 } 
                 else{
