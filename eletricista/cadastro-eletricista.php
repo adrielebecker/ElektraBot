@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <?php
+    session_name("eletricista");
     session_start();
     isset($_SESSION['dados']);
+    var_dump($_SESSION);
+
     $pagina = "Cadastro";
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
@@ -151,7 +154,7 @@
             <div class="row mt-3">
                 <div class="col-4">
                     <label for="gerente" class="form-label">Gerente Responsável:</label>
-                    <select name="gerente" id="gerente" class="form-select">
+                    <select name="gerente" id="gerente" class="form-select border-success text-center">
                         <?php
                             foreach($json as $value){
                                 echo "<option value='{$value['nome']}'>{$value['nome']}</option>";

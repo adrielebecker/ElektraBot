@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <?php
+    session_name("gerente");
     session_start();
     isset($_SESSION['dados']);
+    var_dump($_SESSION);
+
     $pagina = "Cadastro";
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     $nome = isset($_POST['nome']) ? $_POST['nome'] : "";

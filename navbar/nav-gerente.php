@@ -15,6 +15,9 @@
                 </button>
             </form>
         </div>
+        <div class="col-1 mt-3 ms-5">
+            <a class="btn" type="submit" name="acao" id="acao" value="logoff">Logoff</a>
+        </div>
         <div class="col-1 mt-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>

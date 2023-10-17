@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <?php
+    // session_name("eletricista");
     session_start();
-    $pagina = "Bem Vindo, ".$_SESSION['nome']."!";
+    var_dump($_SESSION);
+    $pagina = "Bem Vindo, ".$_SESSION['nomeEletri']."!";
 ?>
 <html lang="pt-BR">
 <head>

@@ -168,7 +168,7 @@
             foreach($jsonG as $value){
                 if(strtolower($value['nome']) == strtolower($nome) && $value['senha'] == $senha){
                     session_start();
-                    $_SESSION['nome'] = $value['nome'];
+                    $_SESSION['nomeGerente'] = $value['nome'];
                     header('Location: ../gerente/index.php');
                 } 
                 else{
@@ -183,7 +183,7 @@
             foreach($jsonE as $value){
                 if(strtolower($value['nome']) == strtolower($nome) && $value['senha'] == $senha){
                     session_start();
-                    $_SESSION['nome'] = $value['nome'];
+                    $_SESSION['nomeEletri'] = $value['nome'];
                     header('Location: ../eletricista/index.php');
                 } 
                 else{
