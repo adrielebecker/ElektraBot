@@ -15,9 +15,6 @@
                 </button>
             </form>
         </div>
-        <div class="col-1 mt-3 ms-5">
-            <a class="btn" type="submit" name="acao" id="acao" value="logoff">Logoff</a>
-        </div>
         <div class="col-1 mt-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -30,7 +27,7 @@
                 <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Minha Conta</a>
+                        <a class="nav-link active mt-2 text-white" aria-current="page" href="#">Minha Conta</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Gravações</a>
@@ -52,6 +49,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../acao/acao.php?acao=logoff" class="btn text-white texto" name="acao" id="acao">Logoff</a>
                     </li>
                 </ul>
                 </div>

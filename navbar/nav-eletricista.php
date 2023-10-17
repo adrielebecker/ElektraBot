@@ -47,6 +47,9 @@
                     <li class="nav-item">
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Página Inicial</a>
                     </li>
+                    <li class="nav-item mt-4">
+                        <a href="../acao/acao.php?acao=logoff" class="btn text-white texto" name="acao" id="acao">Logoff</a>
+                    </li>
                 </ul>
                 </div>
             </div>
