@@ -1,5 +1,5 @@
 <?php
-    include 'funcoes.php';
+    // include 'funcoes.php';
     var_dump($_POST);
     $caminhoGerente = '../json/gerente.json';
     $caminhoEletricista = '../json/eletricista.json';
@@ -15,6 +15,8 @@
             break;
     }
     
+    echo $acao;
+
     switch($acao){
         case 'continuar':
             cargo();
@@ -35,6 +37,28 @@
         case 'logoff':
             logoff();
             break;
+        case 'alterarGerente':
+            alterarGerente($caminhoGerente, $jsonGerente);
+            break;
+    }
+
+    function nome($pagina){
+        echo $pagina;
+    }
+
+    function formataCpf($cpf){
+        $cpf= substr($cpf,0,-8).".".substr($cpf, 3, -5).".".substr($cpf, -5, -2)."-".substr($cpf,-2);
+        return $cpf;
+    }
+
+    function formataTelefone($number){
+        $number="(".substr($number,0,2).") ".substr($number,2,-4)." - ".substr($number,-4);
+        return $number;
+    }
+
+    function formataCep($cep){
+        $cep= substr($cep,0,-4)." - ".substr($cep,-4);
+        return $cep;
     }
 
     function cargo(){
@@ -201,10 +225,54 @@
         }
     }
 
+/************************************ Login ************************************************/
     function logoff(){
         session_start();
         session_destroy();
         header('Location: ../index.php');  
     }
 
+/************************************ Buscar ID gerente ************************************************/
+    function busca($id){
+        $caminho = '../json/gerente.json';
+        $json = json_decode(file_get_contents($caminho));
+
+        foreach($json as $value){
+            if($value->id == $id){
+                return(array)$value;
+            }
+        }
+    }
+
+/************************************ alterar gerente ************************************************/
+    function alterarGerente($caminhoGerente, $jsonGerente){
+        $jsonGerente = json_decode(file_get_contents($caminhoGerente), true);
+        foreach($jsonGerente as $key => $value){
+            if($value['id'] == $_POST['id']){
+                $jsonGerente[$key] = ['id' => $_POST['id'],
+                        'cargo' => 'Gerente',
+                        'nome' => ucwords($_POST['nome']),
+                        'dataNasc' => date("d/m/Y", strtotime($_POST['dataNasc'])),
+                        'sexo' => $_POST['sexo'],
+                        'cpf' => $_POST['cpf'],
+                        'celular' => $_POST['celular'],
+                        'email' => $_POST['email'],
+                        'cep' => $_POST['cep'],
+                        'estado' => $_POST['estado'],
+                        'cidade' => ucwords($_POST['cidade']),
+                        'bairro' => ucwords($_POST['bairro']),
+                        'rua' => ucwords($_POST['rua']),
+                        'complemento' => ucwords($_POST['complemento']),
+                        'numero' => $_POST['numero'],
+                        'user' => $_POST['user'],
+                        'matricula' => $_POST['matricula'],
+                        'senha' => $_POST['senha']];
+            }
+            
+            $dados_json = json_encode($jsonGerente);
+            $fp = fopen($caminhoGerente, "w");
+            fwrite($fp, $dados_json);
+            fclose($fp);
+        }
+    }
 ?>

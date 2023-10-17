@@ -2,6 +2,7 @@
 <?php
     session_start();
     // var_dump($_SESSION);
+    include "../acao/acao.php";
     $pagina = "Minha Conta";
     $caminho = '../json/gerente.json';
     $json = json_decode(file_get_contents($caminho), true);
@@ -35,7 +36,12 @@
                     <p class="text-center mt-2 texto">Alterar imagem:</p>
                 </div>
                 <div class="row">
-                    <input type="file" name="foto" id="foto">
+                    <input type="file" name="foto" id="foto" class="formFileSm">
+                </div>
+                <div class="row mt-5">
+                    <?php
+                        echo "<a class='btn btn-success texto' href='cadastro-gerente.php?acao=alterarGerente&id={$_SESSION['idGerente']}'>Alterar Dados</a>";
+                    ?>
                 </div>
             </div>
             <div class="col-1"></div>
@@ -53,9 +59,6 @@
                                 <th>Data de Nascimento</th>
                                 <th>Sexo</th>
                                 <th>CPF</th>
-                                <th>Nome de Usuário</th>
-                                <th>Matrícula</th>
-                                <th>Cargo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,10 +69,7 @@
                                                 <td>".$value['nome']."</td>
                                                 <td>".$value['dataNasc']."</td>
                                                 <td>".$value['sexo']."</td>
-                                                <td>".$value['cpf']."</td>
-                                                <td>".$value['user']."</td>
-                                                <td>".$value['matricula']."</td>
-                                                <td>".$value['cargo']."</td>
+                                                <td>".formataCpf($value['cpf'])."</td>
                                             </tr>";
                                     }
                                 }
@@ -126,7 +126,7 @@
                                 foreach($json as $value){
                                     if($_SESSION['idGerente'] == $value['id']){
                                         echo "<tr>
-                                                <td>".$value['celular']."</td>
+                                                <td>".formataTelefone($value['celular'])."</td>
                                                 <td>".$value['email']."</td></tr>";
                                     }
                                 }
@@ -164,7 +164,7 @@
                                                 <td>".$value['rua']."</td>
                                                 <td>".$value['complemento']."</td>
                                                 <td>".$value['numero']."</td>
-                                                <td>".$value['cep']."</td>
+                                                <td>".formataCep($value['cep'])."</td>
                                             </tr>";
                                     }
                                 }

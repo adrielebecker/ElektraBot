@@ -4,6 +4,7 @@
     session_start();
     isset($_SESSION['dados']);
     var_dump($_SESSION);
+    include "../acao/acao.php";
 
     $pagina = "Cadastro";
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
