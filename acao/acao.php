@@ -40,12 +40,12 @@
         case 'alterarGerente':
             alterarGerente($caminhoGerente, $jsonGerente);
             break;
+        case 'alterarEletricista':
+            alterarEletricista($caminhoEletricista, $jsonEletricista);
+            break;
     }
 
-    function nome($pagina){
-        echo $pagina;
-    }
-
+/************************************ Outras funções ************************************************/
     function formataCpf($cpf){
         $cpf= substr($cpf,0,-8).".".substr($cpf, 3, -5).".".substr($cpf, -5, -2)."-".substr($cpf,-2);
         return $cpf;
@@ -70,8 +70,19 @@
             header('Location: ../gerente/cadastro-gerente.php');
         }
     }
+    /************************************ Buscar ID ************************************************/
+    function busca($id, $caminho){
+        $json = json_decode(file_get_contents($caminho));
 
-/************************************ Gerente ************************************************/
+        foreach($json as $value){
+            if($value->id == $id){
+                return(array)$value;
+            }
+        }
+    }
+
+    /************************************ Gerente ************************************************/
+/************************************ salvar Gerente ************************************************/
     function salvarGerente($caminhoGerente, $jsonGerente){
         $id = date("YmdHis");
         $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
@@ -108,7 +119,8 @@
                 'numero' => $numero,
                 'user' => $user,
                 'matricula' => $matricula,
-                'senha' => $senha];
+                'senha' => $senha,
+                'foto' => '../dowloads/documento.png'];
 
         if($jsonGerente != NULL){
             array_push($jsonGerente, $dados);
@@ -128,7 +140,40 @@
             </script>";
     }
 
-/************************************ Eletricista ************************************************/
+/************************************ alterar gerente ************************************************/
+    function alterarGerente($caminhoGerente, $jsonGerente){
+        $jsonGerente = json_decode(file_get_contents($caminhoGerente), true);
+        foreach($jsonGerente as $key => $value){
+            if($value['id'] == $_POST['id']){
+                $jsonGerente[$key] = ['id' => $_POST['id'],
+                        'cargo' => 'Gerente',
+                        'nome' => ucwords($_POST['nome']),
+                        'dataNasc' => date("d/m/Y", strtotime($_POST['dataNasc'])),
+                        'sexo' => $_POST['sexo'],
+                        'cpf' => $_POST['cpf'],
+                        'celular' => $_POST['celular'],
+                        'email' => $_POST['email'],
+                        'cep' => $_POST['cep'],
+                        'estado' => $_POST['estado'],
+                        'cidade' => ucwords($_POST['cidade']),
+                        'bairro' => ucwords($_POST['bairro']),
+                        'rua' => ucwords($_POST['rua']),
+                        'complemento' => ucwords($_POST['complemento']),
+                        'numero' => $_POST['numero'],
+                        'user' => $_POST['user'],
+                        'matricula' => $_POST['matricula'],
+                        'senha' => $_POST['senha']];
+            }
+            
+            $dados_json = json_encode($jsonGerente);
+            $fp = fopen($caminhoGerente, "w");
+            fwrite($fp, $dados_json);
+            fclose($fp);
+        }
+    }
+
+    /************************************ Eletricista ************************************************/
+/************************************ salvar eletricista ************************************************/
     function salvarEletricista($caminhoEletricista, $jsonEletricista){
         $id = date("YmdHis");
         $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
@@ -154,16 +199,17 @@
                 'nome' => ucwords($nome),
                 'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
                 'sexo' => $sexo,
-                'cpf' => formataCpf($cpf),
-                'celular' => formataTelefone($celular),
+                'cpf' => $cpf,
+                'celular' => $celular,
                 'email' => $email,
-                'cep' => formataCep($cep),
+                'cep' => $cep,
                 'estado' => $estado,
                 'cidade' => ucwords($cidade),
                 'bairro' => ucwords($bairro),
                 'rua' => ucwords($rua),
                 'complemento' => ucwords($complemento),
                 'numero' => $numero,
+                'gerente' => $gerente,
                 'user' => $user,
                 'matricula' => $matricula,
                 'senha' => $senha];
@@ -186,6 +232,38 @@
             </script>";
     }
 
+/************************************ alterar eletricista ************************************************/
+function alterarEletricista($caminhoEletricista, $jsonEletricista){
+    $jsonEletricista = json_decode(file_get_contents($caminhoEletricista), true);
+    foreach($jsonEletricista as $key => $value){
+        if($value['id'] == $_POST['id']){
+            $jsonEletricista[$key] = ['id' => $_POST['id'],
+                    'cargo' => 'Eletricista',
+                    'nome' => ucwords($_POST['nome']),
+                    'dataNasc' => date("d/m/Y", strtotime($_POST['dataNasc'])),
+                    'sexo' => $_POST['sexo'],
+                    'cpf' => $_POST['cpf'],
+                    'celular' => $_POST['celular'],
+                    'email' => $_POST['email'],
+                    'cep' => $_POST['cep'],
+                    'estado' => $_POST['estado'],
+                    'cidade' => ucwords($_POST['cidade']),
+                    'bairro' => ucwords($_POST['bairro']),
+                    'rua' => ucwords($_POST['rua']),
+                    'complemento' => ucwords($_POST['complemento']),
+                    'numero' => $_POST['numero'],
+                    'gerente' => $_POST['gerente'],
+                    'user' => $_POST['user'],
+                    'matricula' => $_POST['matricula'],
+                    'senha' => $_POST['senha']];
+        }
+        
+        $dados_json = json_encode($jsonEletricista);
+        $fp = fopen($caminhoEletricista, "w");
+        fwrite($fp, $dados_json);
+        fclose($fp);
+    }
+}
 /************************************ Login ************************************************/
     function login($caminhoEletricista, $caminhoGerente, $jsonEletricista, $jsonGerente){
         $cargo = isset($_POST['cargo']) ? $_POST['cargo'] : "";
@@ -230,49 +308,5 @@
         session_start();
         session_destroy();
         header('Location: ../index.php');  
-    }
-
-/************************************ Buscar ID gerente ************************************************/
-    function busca($id){
-        $caminho = '../json/gerente.json';
-        $json = json_decode(file_get_contents($caminho));
-
-        foreach($json as $value){
-            if($value->id == $id){
-                return(array)$value;
-            }
-        }
-    }
-
-/************************************ alterar gerente ************************************************/
-    function alterarGerente($caminhoGerente, $jsonGerente){
-        $jsonGerente = json_decode(file_get_contents($caminhoGerente), true);
-        foreach($jsonGerente as $key => $value){
-            if($value['id'] == $_POST['id']){
-                $jsonGerente[$key] = ['id' => $_POST['id'],
-                        'cargo' => 'Gerente',
-                        'nome' => ucwords($_POST['nome']),
-                        'dataNasc' => date("d/m/Y", strtotime($_POST['dataNasc'])),
-                        'sexo' => $_POST['sexo'],
-                        'cpf' => $_POST['cpf'],
-                        'celular' => $_POST['celular'],
-                        'email' => $_POST['email'],
-                        'cep' => $_POST['cep'],
-                        'estado' => $_POST['estado'],
-                        'cidade' => ucwords($_POST['cidade']),
-                        'bairro' => ucwords($_POST['bairro']),
-                        'rua' => ucwords($_POST['rua']),
-                        'complemento' => ucwords($_POST['complemento']),
-                        'numero' => $_POST['numero'],
-                        'user' => $_POST['user'],
-                        'matricula' => $_POST['matricula'],
-                        'senha' => $_POST['senha']];
-            }
-            
-            $dados_json = json_encode($jsonGerente);
-            $fp = fopen($caminhoGerente, "w");
-            fwrite($fp, $dados_json);
-            fclose($fp);
-        }
     }
 ?>

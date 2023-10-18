@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     include "../acao/acao.php"; 
+    $caminho = '../json/gerente.json';
     session_name("gerente");
     session_start();
     isset($_SESSION['dados']);
@@ -16,7 +17,7 @@
 
     $vet = array();
     if($id != 0){
-        $vet = busca($id);
+        $vet = busca($id, $caminho);
     }
     var_dump($vet);
     $confirmaSenha = isset($_POST['confirmaSenha']) ? $_POST['confirmaSenha'] : "";
