@@ -41,7 +41,7 @@
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Notificações</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Eletricistas</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/eletricistas.php">Eletricistas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Sobre os Desenvolvedores</a>

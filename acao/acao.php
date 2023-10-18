@@ -52,12 +52,12 @@
     }
 
     function formataTelefone($number){
-        $number="(".substr($number,0,2).") ".substr($number,2,-4)." - ".substr($number,-4);
+        $number="(".substr($number,0,2).") ".substr($number,2,-4)."-".substr($number,-4);
         return $number;
     }
 
     function formataCep($cep){
-        $cep= substr($cep,0,-4)." - ".substr($cep,-4);
+        $cep= substr($cep,0,-4)."-".substr($cep,-4);
         return $cep;
     }
 
@@ -107,10 +107,10 @@
                 'nome' => ucwords($nome),
                 'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
                 'sexo' => $sexo,
-                'cpf' => formataCpf($cpf),
-                'celular' => formataTelefone($celular),
+                'cpf' => $cpf,
+                'celular' => $celular,
                 'email' => $email,
-                'cep' => formataCep($cep),
+                'cep' => $cep,
                 'estado' => $estado,
                 'cidade' => ucwords($cidade),
                 'bairro' => ucwords($bairro),
