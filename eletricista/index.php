@@ -23,7 +23,7 @@
         
         <div class="row mt-5">
             <div class="col-3">
-                <a href="" class="link">
+                <a href="camera.php" class="link">
                     <div class="card secundario border-success rounded-4">
                         <img src="../img/icones/camera.png" alt="camera" width="50%" class="rounded mx-auto d-block">
                         <div class="card-body">

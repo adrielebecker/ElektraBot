@@ -1,7 +1,7 @@
 <nav class="navbar border-bottom border-success sticky-top">
     <div class="container-fluid">
         <div class="col-2">
-            <a href="#home" class="nav-link ms-2"><img src="../img/logo/logo-nav.png" alt="logo da elektrabot" width="80%"></a>
+            <a href="../gerente/index.php" class="nav-link ms-2"><img src="../img/logo/logo-nav.png" alt="logo da elektrabot" width="80%"></a>
         </div>
         <div class="col-4 mt-4">
             <p class="texto text-center"><?= $pagina ?></p>
