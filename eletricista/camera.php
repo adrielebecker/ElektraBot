@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php 
     $pagina = "Câmera";
+    $video = 'substituicao-longa.mp4';
 ?>
 <html lang="pt-BR">
 <head>
@@ -61,12 +62,21 @@
                 <h3 class="titulo verde text-center"><?=$pagina?></h3>
             </div>
         </div>
+
         <div class="row">
             <div class="col-2"></div>
             <div class="col-6 ms-5">
-            <video width="600" controls autoplay muted>
-                <source src="../video/substituicao-longa.mp4" type="video/mp4">
-            </video> 
+                <?php
+                    echo "<video width='600' controls autoplay muted>
+                            <source src='../video/{$video}' type='video/mp4'>
+                        </video>";
+                ?>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2">
+                <?php
+                    echo "<a href='../acao/acao.php?acao=salvarGravacao&video={$video}' class='btn btn-success'>Salvar Gravação</a>";
+                ?>
             </div>
         </div>
     </div>

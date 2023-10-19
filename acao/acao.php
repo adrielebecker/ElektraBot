@@ -3,8 +3,10 @@
     var_dump($_POST);
     $caminhoGerente = '../json/gerente.json';
     $caminhoEletricista = '../json/eletricista.json';
+    $caminhoGravacao = '../json/gravacao.json';
     $jsonGerente = json_decode(file_get_contents($caminhoGerente), true);
     $jsonEletricista = json_decode(file_get_contents($caminhoEletricista), true);
+    $jsonGravacao = json_decode(file_get_contents($caminhoGravacao), true);
 
     switch($_SERVER['REQUEST_METHOD']){
         case 'POST': 
@@ -42,6 +44,9 @@
             break;
         case 'alterarEletricista':
             alterarEletricista($caminhoEletricista, $jsonEletricista);
+            break;
+        case 'salvarGravacao':
+            salvarGravacao($caminhoGravacao, $jsonGravacao);
             break;
     }
 
@@ -308,5 +313,29 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
         session_start();
         session_destroy();
         header('Location: ../index.php');  
+    }
+
+/************************************ Salvar Gravação ************************************************/
+    function salvarGravacao($caminhoGravacao, $jsonGravacao){
+        $video = isset($_GET['video']) ? $_GET['video'] : "";
+        echo "<video width='600' controls autoplay muted>
+                <source src='{$video}' type='video/mp4'>
+            </video>";
+        $dados = ['video' => $video];
+
+        if($jsonGravacao != NULL){
+            array_push($jsonGravacao, $dados);
+        }
+        else{
+            $jsonGravacao = array();
+            array_push($jsonGravacao, $dados);
+        }
+
+        $dados_json = json_encode($jsonGravacao);
+        $fp = fopen($caminhoGravacao, "w");
+        fwrite($fp, $dados_json);
+        fclose($fp);
+
+        header('Location: ../eletricista/gravacoes.php');
     }
 ?>
