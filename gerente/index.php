@@ -39,7 +39,7 @@
             </div>
 
             <div class="col-3">
-                <a href="" class="link">
+                <a href="gravacoes.php" class="link">
                     <div class="card secundario border-success rounded-4">
                         <img src="../img/icones/gravacoes.png" alt="gravações" width="50%" class="rounded mx-auto d-block">
                         <div class="card-body">

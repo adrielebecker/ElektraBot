@@ -59,7 +59,7 @@
                 else{
                     foreach($jsonGravacao as $value){
                         if($_SESSION['idEletri'] == $value['idEletri']){   
-                            echo "<div class='col-2 mt-4'>
+                            echo "<div class='col-2 mt-4 text-center'>
                                     <a href='video.php?video={$value['video']}' class='link texto fs-5 text-reset'><img src='../img/icones/video.png'></a>
                                     <p class='texto fs-6'>{$value['video']}</p>
                                 </div>";
