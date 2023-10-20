@@ -32,7 +32,7 @@
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/camera.php">Câmera</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Gravações</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/gravacoes.php">Gravações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Relatórios</a>

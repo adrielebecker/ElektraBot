@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php
     $pagina = "Gravações";
-    $caminho = '../json/gravacao.json';
-    $json = json_decode(file_get_contents($caminho), true);
+    $caminhoGravacao = '../json/gravacoes.json';
+    $jsonGravacao = json_decode(file_get_contents($caminhoGravacao), true);
+    // var_dump($jsonGravacao);
+    session_start();
 ?>
 <html lang="pt-BR">
 <head>
@@ -27,10 +29,12 @@
                     </div>
                     <div class="offcanvas-body">
                         <?php
-                            foreach($json as $value){
-                                echo "<div class='row'>
-                                        <a href='video.php?video={$value['video']}' class='link texto fs-5 text-reset'> {$value['video']} </a>
-                                    </div>";
+                            foreach($jsonGravacao as $value){
+                                if($_SESSION['idEletri'] == $value['idEletri']){   
+                                    echo "<div class='row'>
+                                            <a href='video.php?video={$value['video']}' class='link texto fs-5 text-reset'> {$value['video']} </a>
+                                        </div>";
+                                }
                             }
                         ?>
                     </div>
@@ -43,17 +47,28 @@
             </div>
         </div>
 
-        <div class="row">
-        <?php
-            foreach($json as $value){
-                echo "<div class='col-2 mt-4'>
-                            <a href='video.php?video={$value['video']}' class='link texto fs-5 text-reset'><img src='../img/icones/video.png'></a>
-                            <p class='texto fs-5'>{$value['video']}</p>
-                        </div>";
-            }
-        ?>
+        <div class="row mt-3">
+            <?php
+                if($jsonGravacao == NULL){
+                    echo "<h4 class='text-center titulo mt-5'>Ainda não há gravações!</h4>
+                    <div class='col-4'></div>
+                    <div class='col-4 ms-4 mt-4 bg-image'>
+                        <img src='../img/icones/video.png' width='60%' class='img-gravacao ms-5'>
+                    </div>";
+                }
+                else{
+                    foreach($jsonGravacao as $value){
+                        if($_SESSION['idEletri'] == $value['idEletri']){   
+                            echo "<div class='col-2 mt-4'>
+                                    <a href='video.php?video={$value['video']}' class='link texto fs-5 text-reset'><img src='../img/icones/video.png'></a>
+                                    <p class='texto fs-6'>{$value['video']}</p>
+                                </div>";
+                        }
+                    }
+                }
+            ?>
+            </div>
         </div>
-        
     </div>
 </body>
 </html>

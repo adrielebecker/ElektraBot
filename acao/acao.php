@@ -1,12 +1,10 @@
 <?php
-    // include 'funcoes.php';
-    var_dump($_POST);
     $caminhoGerente = '../json/gerente.json';
     $caminhoEletricista = '../json/eletricista.json';
-    $caminhoGravacao = '../json/gravacao.json';
+    $caminhoGravacoes = '../json/gravacoes.json';
     $jsonGerente = json_decode(file_get_contents($caminhoGerente), true);
     $jsonEletricista = json_decode(file_get_contents($caminhoEletricista), true);
-    $jsonGravacao = json_decode(file_get_contents($caminhoGravacao), true);
+    $jsonGravacoes = json_decode(file_get_contents($caminhoGravacoes), true);
 
     switch($_SERVER['REQUEST_METHOD']){
         case 'POST': 
@@ -46,7 +44,7 @@
             alterarEletricista($caminhoEletricista, $jsonEletricista);
             break;
         case 'salvarGravacao':
-            salvarGravacao($caminhoGravacao, $jsonGravacao);
+            salvarGravacao($caminhoGravacoes, $jsonGravacoes);
             break;
     }
 
@@ -316,26 +314,28 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
     }
 
 /************************************ Salvar Gravação ************************************************/
-    function salvarGravacao($caminhoGravacao, $jsonGravacao){
+    function salvarGravacao($caminhoGravacoes, $jsonGravacoes){
         $video = isset($_GET['video']) ? $_GET['video'] : "";
-        echo "<video width='600' controls autoplay muted>
-                <source src='{$video}' type='video/mp4'>
-            </video>";
-        $dados = ['video' => $video];
+        $idEletri = isset($_GET['idEletri']) ? $_GET['idEletri'] : "";
 
-        if($jsonGravacao != NULL){
-            array_push($jsonGravacao, $dados);
+        $dados = ['video' => $video, 
+                    'idEletri' => $idEletri];
+
+        if($jsonGravacoes != NULL){
+            array_push($jsonGravacoes, $dados);
         }
         else{
-            $jsonGravacao = array();
-            array_push($jsonGravacao, $dados);
+            $jsonGravacoes = array();
+            array_push($jsonGravacoes, $dados);
         }
 
-        $dados_json = json_encode($jsonGravacao);
-        $fp = fopen($caminhoGravacao, "w");
+        $dados_json = json_encode($jsonGravacoes);
+        $fp = fopen($caminhoGravacoes, "w");
         fwrite($fp, $dados_json);
         fclose($fp);
-
+        
+        var_dump($_GET);
+        var_dump($jsonGravacoes);
         header('Location: ../eletricista/gravacoes.php');
     }
 ?>

@@ -72,3 +72,6 @@ nav{
     background-color: #015A06;
     color: #FFF;
 }
+.img-gravacao{
+    filter: opacity(55%);
+}
