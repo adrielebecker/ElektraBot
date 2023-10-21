@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$pagina?></title>
+    <script src="../js/acao.js"></script>
     <?php include 'link.html';?>
 </head>
 <body>
@@ -57,9 +58,17 @@
         <div class="row">
             <div class="col-6">
                 <form action="../acao/acao.php" method="post">
+                <div class="row mt-5">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="row bg-success rounded">
+                            <p class="texto branco text-center mt-3">Nome da Substituição:</p>
+                            <input type="text" name="nome" id="nome" class="form-control text-center border-success">
+                        </div>
+                    </div>
+                </div>
                     <div class="row mt-4">
-                        <div class="col-2"></div>
-                        <div class="col-6">
+                        <div class="col-5 mt-4">
                             <div class="row bg-success rounded">
                                 <p class="texto text-center branco mt-3">Eletricista(s) no projeto:</p>
                                 <select name="eletricista" id="eletricista" class="form-select border-success text-center">
@@ -74,30 +83,17 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row mt-4">
                         <div class="col-2"></div>
-                        <div class="col-6">
+                        <div class="col-5 mt-4">
                             <div class="row bg-success rounded">
                                 <p class="texto branco text-center mt-3">Data da Substituição:</p>
-                                <input type="date" name="dataSubstituicao" id="dataSubstituicao" class="form-control text-center">
+                                <input type="date" name="dataSubstituicao" id="dataSubstituicao" class="form-control text-center border-success">
                             </div>
                         </div>
                     </div>
 
-                    <div class="row mt-4">
-                        <div class="col-2"></div>
-                        <div class="col-6">
-                            <div class="row bg-success rounded">
-                                <p class="texto branco text-center mt-3">Nome da Substituição:</p>
-                                <input type="text" name="nome" id="nome" class="form-control text-center">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-2 ms-4"></div>
+                    <div class="row mt-5">
+                        <div class="col-3 ms-4"></div>
                         <div class="col-2 ms-4">
                             <button class="btn btn-danger">Cancelar</button>
                         </div>
@@ -107,16 +103,17 @@
                     </div>
                 </form>
             </div>
-            <div class="col-6 mt-3">
+            <div class="col-6 mt-4">
                 <div class="row">
-                    <div class="col-12">
-                        <h6 class="texto verde text-center me-4">LOCALIZAÇÃO</h6>
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <h6 class="texto verde text-center ms-5">LOCALIZAÇÃO</h6>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3548.2225635105933!2d-49.642396925310535!3d-27.212161305780715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1697839360200!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="col-2"></div>
+                    <div class="col-10 mt-3">
+                        <iframe class="border border-success rounded-3" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3548.2225635105933!2d-49.642396925310535!3d-27.212161305780715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1697839360200!5m2!1spt-BR!2sbr" width="400" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
