@@ -3,7 +3,7 @@
     $pagina = "Câmera";
     $video = 'substituicao-longa.mp4';
     session_start();
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
 ?>
 <html lang="pt-BR">
 <head>
@@ -21,11 +21,11 @@
                 <h6 class="texto verde">Conectar Dispositivo</h6>
             </button>
         </div>
-        <div class="col-2">
-                <?php
-                    echo "<a href='../acao/acao.php?acao=salvarGravacao&video={$video}&idEletri={$_SESSION['idEletri']}' class='btn btn-success'>Salvar Gravação</a>";
-                ?>
-            </div>
+        <div class="col-2 mt-3">
+            <?php
+                echo "<a href='../acao/acao.php?acao=salvarGravacao&video={$video}&idEletri={$_SESSION['idEletri']}' class='btn btn-success'>Salvar Gravação</a>";
+            ?>
+        </div>
         <div class="offcanvas" id="navbarToggleExternalContent">
             <div class="m-5 ms-0">
                 <ul class="mt-5 pb-5 border-bottom border-success">
@@ -59,14 +59,9 @@
     </nav>
 
     <div class="container">
-
-        <div class="row">
-            <div class="col-4">
-            </div>
-        </div>
         <div class="row">
             <div class="col-12">
-                <h3 class="titulo verde text-center"><?=$pagina?></h3>
+                <h5 class="titulo verde text-center">Visualização em tempo real:</h5>
             </div>
         </div>
 
@@ -78,6 +73,7 @@
                             <source src='../video/{$video}' type='video/mp4'>
                         </video>";
                 ?>
+                <br><br><br><br>
             </div>
             <div class="col-1"></div>
             

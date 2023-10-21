@@ -2,9 +2,11 @@
     $caminhoGerente = '../json/gerente.json';
     $caminhoEletricista = '../json/eletricista.json';
     $caminhoGravacoes = '../json/gravacoes.json';
+    $caminhoSubstituicao = '../json/substituicao.json';
     $jsonGerente = json_decode(file_get_contents($caminhoGerente), true);
     $jsonEletricista = json_decode(file_get_contents($caminhoEletricista), true);
     $jsonGravacoes = json_decode(file_get_contents($caminhoGravacoes), true);
+    $jsonSubstituicao = json_decode(file_get_contents($caminhoSubstituicao), true);
 
     switch($_SERVER['REQUEST_METHOD']){
         case 'POST': 
@@ -45,6 +47,9 @@
             break;
         case 'salvarGravacao':
             salvarGravacao($caminhoGravacoes, $jsonGravacoes);
+            break;
+        case 'salvarSubstituicao':
+            salvarSubstituicao($caminhoSubstituicao, $jsonSubstituicao);
             break;
     }
 
@@ -280,6 +285,7 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
                     session_start();
                     $_SESSION['nomeGerente'] = $value['nome'];
                     $_SESSION['idGerente'] = $value['id'];
+                    $_SESSION['sexoGerente'] = $value['sexo'];
                     header('Location: ../gerente/index.php');
                 } 
                 else{
@@ -296,6 +302,7 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
                     session_start();
                     $_SESSION['nomeEletri'] = $value['nome'];
                     $_SESSION['idEletri'] = $value['id'];
+                    $_SESSION['sexoEletri'] = $value['sexo'];
                     header('Location: ../eletricista/index.php');
                 } 
                 else{
@@ -338,4 +345,33 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
         var_dump($jsonGravacoes);
         header('Location: ../eletricista/gravacoes.php');
     }
+
+/************************************ Salvar Substituição ************************************************/
+    function salvarSubstituicao($caminhoSubstituicao, $jsonSubstituicao){
+        $eletricista = isset($_POST['eletricista']) ? $_POST['eletricista'] : "";
+        $data = isset($_POST['data']) ? $_POST['data'] : "";
+        $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+        $localizacao = "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2225635105933!2d-49.642396925310535!3d-27.212161305780715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dfb9a5881e0679%3A0x7ad28c5276b53a06!2sInstituto%20Federal%20Catarinense%20-%20Campus%20Rio%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1697839297324!5m2!1spt-BR!2sbr' width='400' height='300' style='border:0;' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>";
+        
+        $dados = ['eletricista' => $eletricista,
+                    'data' => date("d/m/Y", strtotime($data)),
+                    'nome' => $nome,
+                    'localizacao' => $localizacao];
+        
+        if($jsonSubstituicao != NULL){
+            array_push($jsonSubstituicao, $dados);
+        }
+        else{
+            $jsonSubstituicao = array();
+            array_push($jsonSubstituicao, $dados);
+        }
+
+        $dados_json = json_encode($jsonSubstituicao);
+        $fp = fopen($caminhoSubstituicao, "w");
+        fwrite($fp, $dados_json);
+        fclose($fp);
+        
+        var_dump($_POST);
+    }
+
 ?>

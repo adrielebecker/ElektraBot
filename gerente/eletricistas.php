@@ -3,7 +3,7 @@
     include "../acao/acao.php";
     $pagina = "Eletricistas";
     session_start();
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     
     $caminho = '../json/eletricista.json';
     $json = json_decode(file_get_contents($caminho), true);
@@ -19,12 +19,7 @@
     <?php include "../navbar/nav-gerente.php";?>
 
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h3 class="titulo verde text-center mt-4"><?=$pagina?></h3>
-            </div>
-        </div>
-        <div class="row">
+        <div class="row mt-4">
             <?php
                 foreach($json as $value){
                     if($_SESSION['nomeGerente'] == $value['gerente']){

@@ -4,7 +4,7 @@
     $caminho = '../json/gerente.json';
     session_start();
     isset($_SESSION['dados']);
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : "salvarGerente";
     if($acao == "salvarGerente"){
@@ -18,7 +18,7 @@
     if($id != 0){
         $vet = busca($id, $caminho);
     }
-    var_dump($vet);
+    // var_dump($vet);
     $confirmaSenha = isset($_POST['confirmaSenha']) ? $_POST['confirmaSenha'] : "";
 ?>
 <html lang="pt-BR">
@@ -32,7 +32,7 @@
     <?php include "../navbar/nav-gerente.php"; ?>
     <div class="container">
         <div class="row mt-4">
-            <h3 class="titulo verde text-center"><?=$pagina?></h3>
+            <h5 class="titulo verde text-center">Preencha o Formulário:</h5>
         </div>
         <form action="../acao/acao.php" method="post">
         <input type="hidden" name="id" id="id" value="<?=$id?>">

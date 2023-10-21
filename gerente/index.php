@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <?php
-    // session_name("gerente");
     session_start();
-    var_dump($_SESSION);
-    $pagina = "Bem Vindo, ".$_SESSION['nomeGerente']."!";
+    // var_dump($_SESSION);
+    if($_SESSION['sexoGerente'] == "Feminino"){
+        $pagina = "Bem Vinda, ".$_SESSION['nomeGerente']."!";
+    } else{
+        $pagina = "Bem Vindo, ".$_SESSION['nomeGerente']."!";
+    }
 ?>
 <html lang="pt-BR">
 <head>
@@ -24,7 +27,7 @@
         
         <div class="row mt-5">
             <div class="col-3">
-                <a href="" class="link">
+                <a href="substituicoes.php" class="link">
                     <div class="card secundario border-success rounded-4">
                         <img src="../img/icones/designar.png" alt="designar" width="40%" class="rounded mx-auto d-block mt-3">
                         <div class="card-body">
@@ -54,7 +57,7 @@
             </div>
 
             <div class="col-3">
-                <a href="" class="link">
+                <a href="relatorios.php" class="link">
                     <div class="card secundario border-success rounded-4">
                         <img src="../img/icones/relatorio.png" alt="Relatórios" width="40%" class="rounded mx-auto d-block mt-3">
                         <div class="card-body">
@@ -69,7 +72,7 @@
             </div>
 
             <div class="col-3">
-                <a href="" class="link">
+                <a href="notificacoes.php" class="link">
                     <div class="card secundario border-success rounded-4">
                         <img src="../img/icones/notificacoes.png" alt="notificações" width="40%" class="rounded mx-auto d-block mt-3">
                         <div class="card-body">

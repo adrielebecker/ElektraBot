@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    var_dump($_SESSION);
-    $pagina = "Bem Vindo, ".$_SESSION['nomeEletri']."!";
+    // var_dump($_SESSION);
+    if($_SESSION['sexoEletri'] == "Feminino"){
+        $pagina = "Bem Vinda, ".$_SESSION['nomeEletri']."!";
+    } else{
+        $pagina = "Bem Vindo, ".$_SESSION['nomeEletri']."!";
+    }
 ?>
 <html lang="pt-BR">
 <head>
@@ -51,7 +55,7 @@
             </div>
 
             <div class="col-3">
-                <a href="" class="link">
+                <a href="relatorios.php" class="link">
                     <div class="card secundario border-success rounded-4">
                         <img src="../img/icones/relatorio.png" alt="Relatórios" width="40%" class="rounded mx-auto d-block mt-3">
                         <div class="card-body">
@@ -65,7 +69,7 @@
             </div>
 
             <div class="col-3">
-                <a href="" class="link">
+                <a href="notificacoes.php" class="link">
                     <div class="card secundario border-success rounded-4">
                         <img src="../img/icones/notificacoes.png" alt="notificações" width="40%" class="rounded mx-auto d-block mt-3">
                         <div class="card-body">

@@ -19,7 +19,7 @@
     <?php include '../navbar/nav-gerente.php';?>
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 mt-3">
                 <button class="navbar-toggler border border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarToggleExternalContent">
                     <h6 class="texto verde mt-1">Acesso rápido</h6>
                 </button>
@@ -47,16 +47,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                <h3 class="text-center titulo verde"><?=$pagina?></h3>
+            <div class="col-12 mt-1">
+                <h5 class="text-center titulo verde">Pesquise gravações por eletricistas:</h5>
             </div>
         </div>
 
-        <div class="row mt-4">
+        <div class="row mt-3 text-center">
             <div class="col-3"></div>
             <div class="col-4">
                 <form action="" method="post">
-                    <label for="eletricista" class="form-label">Pesquise gravações por eletricistas:</label>
                     <select name="eletricista" id="eletricista" class="form-select border-success text-center" required>
                         <option value="todos">Mostrar todas as gravações</option>
                         <?php
@@ -68,8 +67,8 @@
                         ?>
                     </select>
             </div>
-            <div class="col-2 mt-4">
-                    <input type="submit" name="pesquisa" id="pesquisa" class="btn btn-success mt-2">
+            <div class="col-2">
+                    <input type="submit" name="pesquisa" id="pesquisa" class="btn btn-success">
                 </form> 
             </div>
         </div>
@@ -80,7 +79,7 @@
 
                 foreach($jsonEletricista as $key){
                     foreach($jsonGravacao as $value){
-                        if($eletricista == "todos"){
+                        if($eletricista == "todos" or $eletricista == NULL){
                             if($key['id'] == $value['idEletri']){   
                                 echo "<div class='col-2 mt-4 text-center'>
                                         <a href='video.php?video={$value['video']}' class='link texto fs-5 text-reset'><img src='../img/icones/video.png'></a>

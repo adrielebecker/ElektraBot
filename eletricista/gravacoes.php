@@ -41,11 +41,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <h3 class="text-center titulo verde"><?=$pagina?></h3>
-            </div>
-        </div>
 
         <div class="row mt-3">
             <?php

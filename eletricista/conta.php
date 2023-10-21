@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     include "../acao/acao.php";
     $pagina = "Minha Conta";
     $caminho = '../json/eletricista.json';
@@ -17,12 +17,7 @@
 <body>
     <?php include "../navbar/nav-eletricista.php";?>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="titulo verde text-center mt-5">Minha conta</h2>
-            </div>
-        </div>
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-2 mt-4 img-user">
                 <div class="row">
                     <h6 class="titulo verde text-center">Foto de Perfil</h6>

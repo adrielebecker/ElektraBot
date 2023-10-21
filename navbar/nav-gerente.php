@@ -3,18 +3,11 @@
         <div class="col-2">
             <a href="../gerente/index.php" class="nav-link ms-2"><img src="../img/logo/logo-nav.png" alt="logo da elektrabot" width="80%"></a>
         </div>
-        <div class="col-4 mt-4">
-            <p class="texto text-center"><?= $pagina ?></p>
+        <div class="col-8 mt-4 text-center">
+            <p class="texto verde fs-5"><?= $pagina ?></p>
         </div>
-        <div class="col-3">
-            <form class="d-flex mt-3" role="search">
-                <input type="text" placeholder="Digite aqui..." class="form-control">
-                <button type="submit" class="btn">
-                    <img src="../img/icones/lupa.png" alt="">
-                </button>
-            </form>
-        </div>
-        <div class="col-1 mt-3">
+        <div class="col-1"></div>
+        <div class="col-1">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,22 +25,22 @@
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/gravacoes.php">Gravações</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Relatórios</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/relatorios.php">Relatórios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Designar Substituições</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/substituicoes.php">Designar Substituições</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Notificações</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/notificacoes.php">Notificações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/eletricistas.php">Eletricistas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Sobre os Desenvolvedores</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/desenvolvedores.php">Sobre os Desenvolvedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="#">Página Inicial</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/index.php">Página Inicial</a>
                     </li>
                     <li class="nav-item">
                         <a href="../acao/acao.php?acao=logoff" class="btn text-white texto" name="acao" id="acao">Logoff</a>
