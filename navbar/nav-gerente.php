@@ -19,28 +19,28 @@
                 <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active mt-2 text-white" aria-current="page" href="../gerente/conta.php">Minha Conta</a>
+                        <a class="nav-link active mt-2 text-white" aria-current="page" href="../gerente/conta.php"><b>MINHA CONTA</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/gravacoes.php">Gravações</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/gravacoes.php"><b>GRAVAÇÕES</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/relatorios.php">Relatórios</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/relatorios.php"><b>RELATÓRIOS</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/substituicoes.php">Designar Substituições</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/substituicoes.php"><b>DESIGNAR SUBSTITUIÇÕES</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/notificacoes.php">Notificações</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/notificacoes.php"><b>NOTIFICAÇÕES</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/eletricistas.php">Eletricistas</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/eletricistas.php"><b>ELETRICISTAS</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/desenvolvedores.php">Sobre os Desenvolvedores</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/desenvolvedores.php"><b>SOBRE OS DESENVOLVEDORES</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/index.php">Página Inicial</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../gerente/index.php"><b>PÁGINA INICIAL</b></a>
                     </li>
                     <li class="nav-item">
                         <a href="../acao/acao.php?acao=logoff" class="btn text-white texto" name="acao" id="acao">Logoff</a>

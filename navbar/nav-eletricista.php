@@ -19,25 +19,25 @@
                 <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/conta.php">Minha Conta</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/conta.php"><b>MINHA CONTA</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/camera.php">Câmera</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/camera.php"><b>CÂMERA</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/gravacoes.php">Gravações</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/gravacoes.php"><b>GRAVAÇÕES</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/relatorios.php">Relatórios</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/relatorios.php"><b>RELATÓRIOS</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/notificacoes.php">Notificações</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/notificacoes.php"><b>NOTIFICAÇÕES</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/desenvolvedores.php">Sobre os Desenvolvedores</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/desenvolvedores.php"><b>SOBRE OS DESENVOLVEDORES</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/index.php">Página Inicial</a>
+                        <a class="nav-link active mt-4 text-white" aria-current="page" href="../eletricista/index.php"><b>PÁGINA INICIAL</b></a>
                     </li>
                     <li class="nav-item mt-4">
                         <a href="../acao/acao.php?acao=logoff" class="btn text-white texto" name="acao" id="acao">Logoff</a>

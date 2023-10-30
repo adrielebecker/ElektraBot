@@ -47,7 +47,7 @@
                 <div class="row mt-5">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <h6 class="titulo verde text-center nav-link active bg-success border-dark border-bottom-0" style="color: #FFF;">Dados Pessoais</h6>
+                            <h6 class="texto verde text-center nav-link active bg-success border-dark border-bottom-0" style="color: #FFF;">Dados Pessoais</h6>
                         </li>
                     </ul>
                     <table class="table text-center table-bordered border-dark">
@@ -79,7 +79,7 @@
                 <div class="row mt-4">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <h6 class="titulo verde text-center nav-link active bg-success border-dark border-bottom-0" style="color: #FFF;">Dados da Empresa</h6>
+                            <h6 class="nav-link active bg-success border-dark border-bottom-0" style="color: #FFF;">Dados da Empresa</h6>
                         </li>
                     </ul>
                     <table class="table text-center table-bordered border-dark">

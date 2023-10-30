@@ -20,37 +20,6 @@
 <body>
     <?php include '../navbar/nav-gerente.php'; ?>
     <div class="container">
-        <!-- <div class="row mt-1">
-            <div class="col-3">
-                <button class="navbar-toggler border border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarToggleExternalContent">
-                    <h6 class="texto verde mt-1">Acesso rápido</h6>
-                </button>
-
-                <div class="offcanvas p-5 offcanvas-start text-center" id="navbarToggleExternalContent">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title titulo verde" id="offcanvasLabel">Substituições Recentes</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <?php
-                            if($jsonSubstituicao == NULL){
-                                echo "Ainda não há substituições recentes!";
-                            }
-                            else{
-                                foreach($jsonEletricista as $value){
-                                    if($value['gerente'] == $_SESSION['nomeGerente']){
-                                            foreach($jsonSubstituicao as $key){
-                                            echo "<p'>{$key['nome']}</p>";
-                                            echo $value['gerente'];
-                                        }
-                                    }
-                                }
-                            }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="row mt-4">
             <h3 class="titulo verde text-center">Nova Substituição</h3>
         </div>
@@ -70,7 +39,7 @@
                     <div class="row mt-4">
                         <div class="col-5 mt-4">
                             <div class="row bg-success rounded">
-                                <p class="texto text-center branco mt-3">Eletricista(s) no projeto:</p>
+                                <p class="texto text-center branco mt-3">Eletricista no projeto:</p>
                                 <select name="eletricista" id="eletricista" class="form-select border-success text-center">
                                     <option value="selecione">Selecione um eletricista...</option>
                                     <?php

@@ -349,13 +349,14 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
 /************************************ Salvar Substituição ************************************************/
     function salvarSubstituicao($caminhoSubstituicao, $jsonSubstituicao){
         $eletricista = isset($_POST['eletricista']) ? $_POST['eletricista'] : "";
-        $data = isset($_POST['data']) ? $_POST['data'] : "";
+        $dataSubstituicao = isset($_POST['dataSubstituicao']) ? $_POST['dataSubstituicao'] : "";
         $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
-        $localizacao = "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2225635105933!2d-49.642396925310535!3d-27.212161305780715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dfb9a5881e0679%3A0x7ad28c5276b53a06!2sInstituto%20Federal%20Catarinense%20-%20Campus%20Rio%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1697839297324!5m2!1spt-BR!2sbr' width='400' height='300' style='border:0;' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>";
+        $localizacao = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2225635105933!2d-49.642396925310535!3d-27.212161305780715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dfb9a5881e0679%3A0x7ad28c5276b53a06!2sInstituto%20Federal%20Catarinense%20-%20Campus%20Rio%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1697839297324!5m2!1spt-BR!2sbr";
         
         $dados = ['eletricista' => $eletricista,
-                    'data' => date("d/m/Y", strtotime($data)),
+                    'dataSubstituicao' => $dataSubstituicao,
                     'nome' => $nome,
+                    'concluida' => NULL,
                     'localizacao' => $localizacao];
         
         if($jsonSubstituicao != NULL){
@@ -372,6 +373,11 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
         fclose($fp);
         
         var_dump($_POST);
+        header('Location: ../gerente/notificacoes.php');
     }
 
+/************************************ Concluir Substituição ************************************************/
+    function concluirSubstituicao($caminhoSubstituicao, $jsonSubstituicao){
+        
+    }
 ?>
