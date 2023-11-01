@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     $pagina = "Visualizar Substituição";
+    $hoje = date("Y/m/d");
     $nomeSubstituicao = isset($_GET['nomeSubstituicao']) ? $_GET['nomeSubstituicao'] : "";
     $caminhoEletricista = '../json/eletricista.json';
     $caminhoSubstituicao = '../json/substituicao.json';
@@ -21,13 +22,73 @@
 <body>
     <?php include '../navbar/nav-gerente.php'; ?>
     <div class="container">
-        <div class="row mt-4">
+        <div class="row">
+            <div class="col-3 mt-3">
+                <button class="navbar-toggler border border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarToggleExternalContent">
+                    <h6 class="texto verde mt-1">Acesso rápido</h6>
+                </button>
+
+                <div class="offcanvas p-5 offcanvas-start text-center" id="navbarToggleExternalContent">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                    <h5 class="texto text-dark pt-4">DESIGNADAS</h5>
+                    <?php
+                        foreach($jsonSubstituicao as $value){
+                            if($_SESSION['nomeEletri'] == $value['eletricista']){   
+                                if($value['concluida'] == NULL && $hoje < $value['dataSubstituicao']){
+                                    echo "<div class='row mt-2'>
+                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                        </div>";
+                                }
+                            }
+                        }
+                    ?>
+
+                    <h5 class="texto text-danger pt-4">PENDENTES</h5>
+                    <?php
+                        foreach($jsonSubstituicao as $value){
+                            if($_SESSION['nomeEletri'] == $value['eletricista']){   
+                                if($hoje > $value['dataSubstituicao']){
+                                    if($value['concluida'] == NULL){
+                                        echo "<div class='row mt-2'>
+                                                <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                            </div>";
+                                    }
+                                }
+                            }
+                        }
+                    ?>
+
+                    <h5 class="texto verde pt-4">CONCLUÍDAS</h5>
+                    <?php
+                        foreach($jsonSubstituicao as $value){
+                            if($_SESSION['nomeEletri'] == $value['eletricista']){   
+                                if($value['concluida'] != NULL){
+                                    echo "<div class='row mt-2'>
+                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                        </div>";
+                                }
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <h3 class="titulo verde text-center"><?=$nomeSubstituicao?></h3>
         </div>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 mt-3">
                 <form action="../acao/acao.php" method="post">
+                    <input type="hidden" name="id" id="id" value="<?php
+                        foreach($jsonSubstituicao as $value){
+                            if($nomeSubstituicao == $value['nome']){
+                                echo $value['id'];
+                            }
+                        }?>">
                 <div class="row mt-5">
                     <div class="col-5">
                         <div class="row bg-success rounded">
@@ -74,9 +135,20 @@
                     </div>
 
                     <div class="row mt-5">
-                        <div class="col-"></div>
-                        <div class="col-6">                            
-                            <button type="submit" class="btn btn-success" name="acao" id="acao" value="salvarSubstituicao">Marcar como concluída</button>
+                        <div class="col-4"></div>
+                        <div class="col-5"> 
+                            <?php
+                                foreach($jsonSubstituicao as $value){
+                                    if($nomeSubstituicao == $value['nome']){
+                                        if($value['concluida'] != "sim"){
+                                            echo "<button type='submit' class='btn btn-success' name='acao' id='acao' value='concluir'>Concluir substituição</button>";
+                                        }
+                                        else{
+                                            echo "Substituição concluída!";
+                                        }
+                                    }
+                                }
+                            ?>
                         </div>
                     </div>
                 </form>

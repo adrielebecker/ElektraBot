@@ -34,7 +34,7 @@
         <div class="row mt-4">
             <h5 class="titulo verde text-center">Preencha o Formulário:</h5>
         </div>
-        <form action="../acao/acao.php" method="post">
+        <form action="../acao/acao.php" method="post" >
         <input type="hidden" name="id" id="id" value="<?=$id?>">
             <div class="row mt-2">
                 <div class="col-5">
