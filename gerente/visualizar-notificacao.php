@@ -9,7 +9,7 @@
     $jsonEletricista = json_decode(file_get_contents($caminhoEletricista), true);
     $jsonSubstituicao = json_decode(file_get_contents($caminhoSubstituicao), true);
     session_start();
-    // var_dump($jsonEletricista);
+    var_dump($_SESSION);
     // var_dump($jsonSubstituicao);
 ?>
 <html lang="pt-BR">
@@ -37,7 +37,7 @@
                     <h5 class="texto text-dark pt-4">DESIGNADAS</h5>
                     <?php
                         foreach($jsonSubstituicao as $value){
-                            if($_SESSION['nomeEletri'] == $value['eletricista']){   
+                            if($_SESSION['nomeGerente'] == $value['gerente']){   
                                 if($value['concluida'] == NULL && $hoje < $value['dataSubstituicao']){
                                     echo "<div class='row mt-2'>
                                             <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
@@ -50,7 +50,7 @@
                     <h5 class="texto text-danger pt-4">PENDENTES</h5>
                     <?php
                         foreach($jsonSubstituicao as $value){
-                            if($_SESSION['nomeEletri'] == $value['eletricista']){   
+                            if($_SESSION['nomeGerente'] == $value['gerente']){   
                                 if($hoje > $value['dataSubstituicao']){
                                     if($value['concluida'] == NULL){
                                         echo "<div class='row mt-2'>
@@ -65,7 +65,7 @@
                     <h5 class="texto verde pt-4">CONCLUÍDAS</h5>
                     <?php
                         foreach($jsonSubstituicao as $value){
-                            if($_SESSION['nomeEletri'] == $value['eletricista']){   
+                            if($_SESSION['nomeGerente'] == $value['gerente']){   
                                 if($value['concluida'] != NULL){
                                     echo "<div class='row mt-2'>
                                             <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
@@ -97,9 +97,11 @@
                         <div class="row bg-success rounded">
                             <p class="texto branco text-center mt-3">Gerente Responsavél:</p>
                             <?php
-                                foreach($jsonEletricista as $value){
-                                    if($_SESSION['nomeEletri'] == $value['nome']){
-                                        echo "<input type='text' name='gerente' id='gerente' value='".ucwords($value['gerente'])."' class='form-control text-center border-success' readonly>";
+                                foreach($jsonSubstituicao as $value){
+                                    if($_SESSION['nomeGerente'] == $value['gerente']){
+                                        if($id == $value['id']){
+                                            echo "<input type='text' name='gerente' id='gerente' value='".ucwords($value['gerente'])."' class='form-control text-center border-success' readonly>";
+                                        }
                                     }
                                 }
                             ?>
@@ -126,7 +128,7 @@
                                 <p class="texto text-center branco mt-3">Eletricista no projeto:</p>
                                 <?php
                                     foreach($jsonSubstituicao as $value){
-                                        if($_SESSION['nomeEletri'] == $value['eletricista'] && $id == $value['id']){
+                                        if($_SESSION['nomeGerente'] == $value['gerente'] && $id == $value['id']){
                                             echo "<input type='text' name='eletricista' id='eletricista' value='".ucwords($value['eletricista'])."' class='form-control text-center border-success' readonly>";
                                         }
                                     }
@@ -135,7 +137,7 @@
                         </div>
                     </div>
 
-                    <div class="row mt-5"> 
+                    <div class="row mt-5">
                         <?php
                             foreach($jsonSubstituicao as $value){
                                 if($id == $value['id']){

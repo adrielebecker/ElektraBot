@@ -21,7 +21,7 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 ms-2">
                 <button class="navbar-toggler border border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarToggleExternalContent">
                     <h6 class="texto verde mt-3">Acesso rápido</h6>
                 </button>
@@ -46,11 +46,15 @@
                         ?>
                         <div class="row mt-5">
                             <div class="col-4">
-                                <a href="gravacoes.php" class="link texto verde"> Voltar </a>
+                                <a href="gravacoes.php" class="link texto verde"> < Voltar para gravações </a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-6 ms-4"></div>
+            <div class="col-2 mt-2 pt-1 ms-5">
+                <a href="gravacoes.php" class="link text-reset"> < Voltar</a>
             </div>
         </div>
 
@@ -71,6 +75,7 @@
                 ?>
             </div>
         </div>
+        
     </div>
 
 </body>

@@ -37,7 +37,7 @@
                             if($_SESSION['nomeEletri'] == $value['eletricista']){   
                                 if($value['concluida'] == NULL && $hoje < $value['dataSubstituicao']){
                                     echo "<div class='row mt-2'>
-                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
                                         </div>";
                                 }
                             }
@@ -51,7 +51,7 @@
                                 if($hoje > $value['dataSubstituicao']){
                                     if($value['concluida'] == NULL){
                                         echo "<div class='row mt-2'>
-                                                <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                                <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
                                             </div>";
                                     }
                                 }
@@ -65,7 +65,7 @@
                             if($_SESSION['nomeEletri'] == $value['eletricista']){   
                                 if($value['concluida'] != NULL){
                                     echo "<div class='row mt-2'>
-                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
                                         </div>";
                                 }
                             }
@@ -106,7 +106,7 @@
                             if($_SESSION['nomeEletri'] == $value['eletricista']){   
                                 if($value['concluida'] == NULL && $hoje < $value['dataSubstituicao']){
                                     echo "<div class='col-2 mt-2 text-center'>
-                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
                                         </div>";
                                 }
                             }
@@ -119,7 +119,7 @@
                                 if($hoje > $value['dataSubstituicao']){
                                     if($value['concluida'] == NULL){
                                         echo "<div class='col-2 mt-2 text-center'>
-                                                <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                                <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
                                             </div>";
                                     }
                                 }
@@ -132,7 +132,7 @@
                             if($_SESSION['nomeEletri'] == $value['eletricista']){   
                                 if($value['concluida'] != NULL){
                                     echo "<div class='col-2 mt-2 text-center'>
-                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                            <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
                                         </div>";
                                 }
                             }
@@ -143,7 +143,7 @@
                         foreach($jsonSubstituicao as $value){
                             if($_SESSION['nomeEletri'] == $value['eletricista']){   
                                 echo "<div class='col-2 mt-2 text-center'>
-                                        <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}' class='text-reset link'>".ucwords($value['nome'])."</a>
+                                        <a href='visualizar-notificacao.php?nomeSubstituicao={$value['nome']}&id={$value['id']}' class='text-reset link'>".ucwords($value['nome'])."</a>
                                     </div>";
                             }
                         }

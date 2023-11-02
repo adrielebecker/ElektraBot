@@ -356,12 +356,14 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
     function salvarSubstituicao($caminhoSubstituicao, $jsonSubstituicao){
         $id = date("YmdHis");
         $eletricista = isset($_POST['eletricista']) ? $_POST['eletricista'] : "";
+        $gerente = isset($_POST['gerente']) ? $_POST['gerente'] : "";
         $dataSubstituicao = isset($_POST['dataSubstituicao']) ? $_POST['dataSubstituicao'] : "";
         $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
         $localizacao = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2225635105933!2d-49.642396925310535!3d-27.212161305780715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dfb9a5881e0679%3A0x7ad28c5276b53a06!2sInstituto%20Federal%20Catarinense%20-%20Campus%20Rio%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1697839297324!5m2!1spt-BR!2sbr";
         
         $dados = ['id' => $id,
                     'eletricista' => $eletricista,
+                    'gerente' => $gerente,
                     'dataSubstituicao' => $dataSubstituicao,
                     'nome' => $nome,
                     'concluida' => NULL,
@@ -379,8 +381,6 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
         $fp = fopen($caminhoSubstituicao, "w");
         fwrite($fp, $dados_json);
         fclose($fp);
-        
-        var_dump($_POST);
         header('Location: ../gerente/notificacoes.php');
     }
 
@@ -390,6 +390,7 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
             if($value['id'] == $_POST['id']){
                 $jsonSubstituicao[$key] = ['id' => $_POST['id'],
                         'eletricista' => $value['eletricista'],
+                        'gerente' => $value['gerente'],
                         'dataSubstituicao' => $value['dataSubstituicao'],
                         'nome' => $value['nome'],
                         'concluida' => "sim",
@@ -401,5 +402,7 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
         $fp = fopen($caminhoSubstituicao, "w");
         fwrite($fp, $dados_json);
         fclose($fp);
+
+        header('Location: ../gerente/notificacoes.php');
     }
 ?>

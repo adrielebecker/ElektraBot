@@ -25,14 +25,20 @@
         </div>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 mt-3">
                 <form action="../acao/acao.php" method="post">
                 <div class="row mt-5">
-                    <div class="col-2"></div>
-                    <div class="col-8">
+                    <div class="col-5">
                         <div class="row bg-success rounded">
                             <p class="texto branco text-center mt-3">Nome da Substituição:</p>
                             <input type="text" name="nome" id="nome" class="form-control text-center border-success">
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-5">
+                        <div class="row bg-success rounded">
+                            <p class="texto branco text-center mt-3">Gerente:</p>
+                            <input type="text" name="gerente" id="gerente" class="form-control text-center border-success" value="<?=$_SESSION['nomeGerente']?>" readonly>
                         </div>
                     </div>
                 </div>
