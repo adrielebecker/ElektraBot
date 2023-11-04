@@ -82,31 +82,9 @@
                 </a>
             </div>
         </div>
-
-        <br><br><br><br>
-
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-3">
-                        <img src="../img/logo/logo-nav.png" alt="">
-                    </div>
-                    <div class="col-2"></div>
-                    <div class="col-3">
-                        <img src="../img/logo/logoIf.png" alt="" width="100%">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-9">
-                        <p class="copyright">Copyright ©2023 Todos os direitos reservados a ElektraBot 
-                            | Institituto Federal Catarinenese - Campus Rio do Sul 
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <br><br><br><br>           
     </div>
+
+    <?php include "footer.html";?>
 </body>
 </html>
