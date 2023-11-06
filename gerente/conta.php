@@ -65,7 +65,7 @@
                                     if($_SESSION['idGerente'] == $value['id']){
                                         echo "<tr>
                                                 <td>".$value['nome']."</td>
-                                                <td>".$value['dataNasc']."</td>
+                                                <td>".date("d/m/Y", strtotime($value['dataNasc']))."</td>
                                                 <td>".$value['sexo']."</td>
                                                 <td>".formataCpf($value['cpf'])."</td>
                                             </tr>";

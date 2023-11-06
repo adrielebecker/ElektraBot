@@ -119,7 +119,7 @@
         $dados = ['id' => $id,
                 'cargo' => 'Gerente',
                 'nome' => ucwords($nome),
-                'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
+                'dataNasc' => $dataNasc,
                 'sexo' => $sexo,
                 'cpf' => $cpf,
                 'celular' => $celular,
@@ -162,7 +162,7 @@
                 $jsonGerente[$key] = ['id' => $_POST['id'],
                         'cargo' => 'Gerente',
                         'nome' => ucwords($_POST['nome']),
-                        'dataNasc' => date("d/m/Y", strtotime($_POST['dataNasc'])),
+                        'dataNasc' => $_POST['dataNasc'],
                         'sexo' => $_POST['sexo'],
                         'cpf' => $_POST['cpf'],
                         'celular' => $_POST['celular'],
@@ -184,6 +184,8 @@
             fwrite($fp, $dados_json);
             fclose($fp);
         }
+
+        header("Location: index.php");
     }
 
     /************************************ Eletricista ************************************************/
@@ -211,7 +213,7 @@
         $dados = ['id' => $id,
                 'cargo' => 'Eletricista',
                 'nome' => ucwords($nome),
-                'dataNasc' => date("d/m/Y", strtotime($dataNasc)),
+                'dataNasc' => $dataNasc,
                 'sexo' => $sexo,
                 'cpf' => $cpf,
                 'celular' => $celular,
@@ -254,7 +256,7 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
             $jsonEletricista[$key] = ['id' => $_POST['id'],
                     'cargo' => 'Eletricista',
                     'nome' => ucwords($_POST['nome']),
-                    'dataNasc' => date("d/m/Y", strtotime($_POST['dataNasc'])),
+                    'dataNasc' => $_POST['dataNasc'],
                     'sexo' => $_POST['sexo'],
                     'cpf' => $_POST['cpf'],
                     'celular' => $_POST['celular'],
@@ -277,6 +279,8 @@ function alterarEletricista($caminhoEletricista, $jsonEletricista){
         fwrite($fp, $dados_json);
         fclose($fp);
     }
+    header("Location: index.php");
+
 }
 /************************************ Login ************************************************/
     function login($caminhoEletricista, $caminhoGerente, $jsonEletricista, $jsonGerente){

@@ -146,7 +146,7 @@
                                                 <a href='notificacoes.php' class='link text-reset'> < Voltar</a>
                                             </div>
                                             <div class='col-6'> 
-                                                <button type='submit' class='btn btn-success' name='acao' id='acao' value='concluir'>Concluir substituição</button>
+                                                Substituição pendente!
                                             </div>";
                                     }
                                     elseif($value['concluida'] == "sim"){
